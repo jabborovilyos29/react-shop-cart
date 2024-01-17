@@ -44,7 +44,6 @@ const Signup = () => {
 
   const from = location.state?.from?.pathname || "/";
 
-  
   const handleRegister = () => {
     signUpWithGmail()
       .then((result) => {
@@ -54,13 +53,12 @@ const Signup = () => {
       .catch((error) => console.log(error));
   };
 
-
   const handleSignup = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    const confirmPassword = form.confirmPassword.value; 
+    const confirmPassword = form.confirmPassword.value;
 
     if (password !== confirmPassword) {
       setErrorMessage(
@@ -104,11 +102,19 @@ const Signup = () => {
                   placeholder="Confirm Password"
                 />
               </div>
-              {/* showing error message */}
+
               <div>
                 {errorMessage && (
                   <div className="error-message text-danger">
-                    {errorMessage}
+                    {(errorMessage ===
+                      "Firebase: Error (auth/email-already-in-use)." && (
+                      <> Email already in use! </>
+                    )) ||
+                      (errorMessage ===
+                        "Firebase: Password should be at least 6 characters (auth/weak-password)." && (
+                        <>Password should be at least 6 characters</>
+                      )) ||
+                      errorMessage}
                   </div>
                 )}
               </div>
