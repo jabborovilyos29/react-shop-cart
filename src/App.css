@@ -1,35 +1,41 @@
-.nav-profile{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: indigo;
-    cursor: pointer;
+.nav-profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: indigo;
+  cursor: pointer;
 }
 
-
-.page-item{
-    width: 46px;
-    height: 46px;
-    text-align: center;
-    border-radius: 50%;
-    box-shadow: 0px 2px 4px 0px rgba(0,0,0,.06);
-    background: #fff;
-    color: #101115;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 7px;
+.page-item {
+  width: 46px;
+  height: 46px;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.06);
+  background: #fff;
+  color: #101115;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 7px;
 }
 
-.github{
-    height: 36px;
-    width: 36px;
-    line-height: 36px;
-    transition: all .3s ease;
-    border-radius: 50%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    background: #0F9D58;
-    color: #fff;
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

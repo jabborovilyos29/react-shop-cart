@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 
@@ -15,7 +14,7 @@ const Pagination = ({ productsPerPage, totalProducts, paginate, activePage }) =>
         <a href="#"
          onClick={() => {
           if (activePage < pageNumbers.length) {
-            paginate(activePage - 1); // Navigate to the next page
+            paginate(activePage - 1); 
           }
         }}
         

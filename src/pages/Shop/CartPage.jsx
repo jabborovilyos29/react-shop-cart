@@ -136,6 +136,7 @@ const CartPage = () => {
                 <form className="cart-checkout" action="/">
                   <input
                     type="submit"
+                    readOnly
                     value="Update Cart"
                     onClick={(evt) => {
                       handleClick(evt);

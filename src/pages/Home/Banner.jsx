@@ -35,7 +35,7 @@ const Banner = () => {
     setSearchInput(searchTerm);
 
     const filtered = productData.filter((product) =>
-      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+      product.name.toLowerCase().includes(searchTerm.toLowerCase()),
     );
     setFilteredProducts(filtered);
   };
@@ -60,11 +60,15 @@ const Banner = () => {
           </form>
           <p>{desc}</p>
           <ul className="lab-ul">
-          {searchInput && filteredProducts.map((product, i) => (
-              <li key={i}>
-               <Link to={`/shop/${product.id}`}> {product.name}</Link>
-              </li>
-            ))}
+            {(searchInput && filteredProducts.length === 0 && (
+              <h4 style={{opacity: .3}}>Not found..</h4>
+            )) ||
+              (searchInput &&
+                filteredProducts.map((product, i) => (
+                  <li key={i}>
+                    <Link to={`/shop/${product.id}`}> {product.name}</Link>
+                  </li>
+                )))}
           </ul>
         </div>
       </div>

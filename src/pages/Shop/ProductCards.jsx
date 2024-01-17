@@ -1,15 +1,35 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Rating from "../../components/Sidebar/rating";
 
 const ProductCards = ({ products, GridList }) => {
+  const navigate = useNavigate();
+  const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const addToCart = (product) => {
+    console.log(product);
+    const existingProductIndex = existingCart.findIndex(
+      (item) => item.id === product.id,
+    );
+
+    if (existingProductIndex !== -1) {
+      existingCart[existingProductIndex].quantity =
+        existingCart[existingProductIndex].quantity + 1;
+    } else {
+      product.quantity = 1;
+      existingCart.push(product);
+    }
+    localStorage.setItem("cart", JSON.stringify(existingCart));
+    navigate("/cart-page");
+  };
+
   return (
     <div
       className={`shop-product-wrap row justify-content-center ${
         GridList ? "grid" : "list"
       }`}
     >
-      {products.map((product, i) => (
-        <div className="col-lg-4 col-md-6 col-12" key={i}>
+      {products.map((product) => (
+        <div className="col-lg-4 col-md-6 col-12" key={product.id}>
           <div className="product-item">
             <div className="product-thumb">
               <div className="pro-thumb">
@@ -19,9 +39,9 @@ const ProductCards = ({ products, GridList }) => {
                 <Link to={`/shop/${product.id}`}>
                   <i className="icofont-eye"></i>
                 </Link>
-                <Link to="/cart-page">
+                <a onClick={() => addToCart(product)}>
                   <i className="icofont-cart-alt"></i>
-                </Link>
+                </a>
               </div>
             </div>
             <div className="product-content">

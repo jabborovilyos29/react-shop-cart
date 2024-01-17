@@ -147,7 +147,7 @@ const CheckoutPage = () => {
                       </div>
                     </div>
                   </div>
-                  {/* paypal content */}
+                
                   <div
                     className={`tab-pane fade ${
                       activeTab === "paypal" ? "show active" : ""
@@ -156,7 +156,7 @@ const CheckoutPage = () => {
                     role="tabpanel"
                     aria-labelledby="paypal-tab"
                   >
-                    {/* Paypal tab content */}
+               
                     <div className="mx-4 mt-4">
                       <div className="text-center">
                         <h5>Paypal Account Info</h5>
@@ -216,7 +216,7 @@ const CheckoutPage = () => {
                   </div>
                 </div>
               </div>
-              {/* payment desclaimer */}
+            
               <p className="mt-3 px-4 p-Disclaimer">
               <em>Payment Disclaimer:</em> In no event shall payment or partial payment by Owner for any material or service
               </p>
