@@ -52,7 +52,6 @@ const Login = () => {
       .catch((error) => console.log(error));
   };
 
-  // login with email password
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -61,11 +60,9 @@ const Login = () => {
     // console.log(email, password);
     login(email, password)
       .then((result) => {
-        // Signed in
         const user = result.user;
         console.log(user);
         navigate(from, { replace: true });
-        //
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -96,7 +93,7 @@ const Login = () => {
                   placeholder="Password *"
                 />
               </div>
-              {/* showing error message */}
+
               <div>
                 {errorMessage && (
                   <div className="error-message text-danger">
@@ -106,10 +103,6 @@ const Login = () => {
               </div>
               <div className="form-group">
                 <div className="d-flex justify-content-between flex-wrap pt-sm-2">
-                  <div className="checkgroup">
-                    <input type="checkbox" name="remember" id="remember" />
-                    <label htmlFor="remember">Remember Me</label>
-                  </div>
                   <Link to="/forgetpass">Forget Password?</Link>
                 </div>
               </div>
@@ -121,7 +114,10 @@ const Login = () => {
             </form>
             <div className="account-bottom">
               <span className="d-block cate pt-10">
-                Don’t Have any Account? <Link to="/sign-up">Sign Up</Link>
+                Don’t Have any Account?{" "}
+                <Link to="/sign-up">
+                  <strong>Sign Up</strong>
+                </Link>
               </span>
               <span className="or">
                 <span>or</span>

@@ -20,6 +20,19 @@
   margin: 7px;
 }
 
+.github {
+  height: 36px;
+  width: 36px;
+  line-height: 36px;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #0f9d58;
+  color: #fff;
+}
+
 .loader {
   width: 48px;
   height: 48px;
