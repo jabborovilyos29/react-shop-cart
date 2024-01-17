@@ -15,7 +15,7 @@ const AppSection = () => {
       <div className="container">
         <div className="section-header text-center">
           {!user && (
-            <Link to="/signup" className="lab-btn mb-4">
+            <Link to="/sign-up" className="lab-btn mb-4">
               <span>{btnText}</span>
             </Link>
           )}

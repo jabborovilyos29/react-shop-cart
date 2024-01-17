@@ -51,7 +51,7 @@ const AboutUs = () => {
                         <span className="subtitle">{subTitle}</span>
                         <h2 className="title">{title}</h2>
                         <p>{desc}</p>
-                        <Link to="/signup" className="lab-btn"><span>{btnText}</span></Link>
+                        <Link to="/sign-up" className="lab-btn"><span>{btnText}</span></Link>
                     </div>
                 </div>
                 <div className="col">
