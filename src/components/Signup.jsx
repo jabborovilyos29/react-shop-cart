@@ -50,7 +50,12 @@ const Signup = () => {
         const user = result.user;
         navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        const errorMessage = error.message;
+        if (errorMessage === "Firebase: Error (auth/network-request-failed).") {
+          setErrorMessage("Check your internet connection");
+        }
+      });
   };
 
   const handleSignup = (event) => {
@@ -75,7 +80,13 @@ const Signup = () => {
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorMessage);
-          setErrorMessage(`${errorMessage}`);
+          if (
+            errorMessage === "Firebase: Error (auth/network-request-failed)."
+          ) {
+            setErrorMessage("Check your internet connection");
+          } else {
+            setErrorMessage(`${errorMessage}`);
+          }
         });
     }
   };
@@ -126,7 +137,10 @@ const Signup = () => {
             </form>
             <div className="account-bottom">
               <span className="d-block cate pt-10">
-                Are you a member? <Link to="/login">Login</Link>
+                Are you a member?{" "}
+                <Link to="/login">
+                  <strong> Login </strong>
+                </Link>
               </span>
               <span className="or">
                 <span>or</span>

@@ -66,7 +66,11 @@ const Login = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        setErrorMessage("Please provide valid email & password!");
+        if (errorMessage === "Firebase: Error (auth/network-request-failed).") {
+          setErrorMessage("Check your internet connection");
+        } else {
+          setErrorMessage("Please provide valid email & password!");
+        }
       });
   };
 
@@ -97,7 +101,7 @@ const Login = () => {
               <div>
                 {errorMessage && (
                   <div className="error-message text-danger">
-                    {errorMessage }
+                    {errorMessage}
                   </div>
                 )}
               </div>
